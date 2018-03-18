@@ -1,6 +1,6 @@
 const CodeMirror = require('codemirror');
 
--// Enables syntax highlighting for javascript
+// Enables syntax highlighting for javascript
 require('codemirror/mode/javascript/javascript');
 // Enables linting for javascript
 require('codemirror/addon/lint/lint');

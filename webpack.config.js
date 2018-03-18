@@ -21,12 +21,14 @@ module.exports = {
   optimization: {
     minimizer: [
       new UglifyJsPlugin({
-        cache: true,
-        parallel: true,
         uglifyOptions: {
-          mangle: false,
-          keep_classnames: true,
-          keep_fnames: true,
+          compress: {
+            // without `inline: 1` codemirror uglification creates a runtime error due to bad function inlining
+            // ref: https://github.com/webpack/webpack/issues/6760
+            // ref: https://github.com/webpack/webpack/issues/6567#issuecomment-369554250
+            inline: 1,
+          },
+          parallel: true,
         },
       }),
     ]
